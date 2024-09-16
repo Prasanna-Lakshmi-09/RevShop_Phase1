@@ -56,11 +56,11 @@
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="#">Seller Dashboard</a>
+        <a class="navbar-brand" href="#">Retailer Dashboard</a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                   <a class="nav-link" href="home.jsp">Home</a>
+                   <a class="nav-link" href="retailerDashboard.jsp">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="manageProducts.jsp">Manage Products</a>
@@ -68,11 +68,12 @@
                 <li class="nav-item">
                    <a class="nav-link" href="viewOrders.jsp">View Orders</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="manageProfile.jsp">Profile</a>
-                </li>
+                
                 <li class="nav-item">
                    <a class="nav-link" href="customerFeedback.jsp">Customer-FeedBack</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="manageProfile.jsp">Profile</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="logout.jsp">Logout</a>
@@ -83,7 +84,7 @@
 
     <!-- Main Dashboard Section -->
     <div class="container">
-        <h2 class="dashboard-title">Welcome, [Seller Name]!</h2>
+        <h2 class="dashboard-title">Welcome, Retailer!</h2>
 
         <div class="row">
             <!-- Add Products -->

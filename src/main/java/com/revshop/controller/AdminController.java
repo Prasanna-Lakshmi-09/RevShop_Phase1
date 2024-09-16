@@ -31,7 +31,7 @@ public class AdminController {
         if (i!=null) {
             hs.setAttribute("uname", i);
             //Redirecting admin to dashboard page
-            mv.setViewName("dashboard.jsp");
+            mv.setViewName("adminDashboard.jsp");
           
 
         } else {
@@ -45,25 +45,6 @@ public class AdminController {
 		return mv;
 	}
 	
-	@RequestMapping("CustomerProductsOrderStatus")
-	public ModelAndView CustomerProductsOrderStatus(HttpServletRequest request,HttpServletResponse response,@RequestParam("upass") String password,@RequestParam("email") String email) {
-		ModelAndView mv=new ModelAndView();
-		HttpSession hs = request.getSession();
-		 int statusMode=adminService.updateOrderStatusService(request.getParameter("orderId"));
-         // int statusMode = 0;
-          //Taking input from admin order-id to get the order status from the database
-          
-          if (statusMode > 0) {
-              //Sending response back to admin-all-orders.jsp page when sql query executed sucesfully
-        	  mv.setViewName("admin-all-orders.jsp");
-          } else {
-              //Sending response back to admin-all-orders.jsp page
-        	  mv.setViewName("admin-all-orders.jsp");
-          }
-     
-       
-		
-		return mv;
-	}
+	
 }
 

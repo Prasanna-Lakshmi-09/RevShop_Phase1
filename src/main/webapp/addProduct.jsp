@@ -33,9 +33,7 @@
         <a class="navbar-brand" href="#">Retailer Dashboard</a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                   <a class="nav-link" href="home.jsp">Home</a>
-                </li>
+                
                 <li class="nav-item">
                 <a class="nav-link" href="retailerDashboard.jsp">Dashboard</a>
                 </li>
@@ -67,7 +65,7 @@
     
     
     <div class="container">
-        <h2 class="my-4">Manage Products</h2>
+        <h2 class="my-4">Add Products</h2>
 
         <!-- Add Product Form -->
         <form action="/addProduct" method="post">

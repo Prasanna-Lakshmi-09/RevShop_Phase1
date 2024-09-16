@@ -6,6 +6,5 @@ public interface AdminServiceInterface {
 
 	Admin adminLoginService(String email, String password);
 
-	int updateOrderStatusService(String parameter);
 
 }

@@ -22,8 +22,7 @@ public class Retailer {
 	private String retailerPassword;
 	private String address;
 	private long ContactNo;
-	@OneToMany(mappedBy = "retailer",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	private List<Product> plist;
+	
 	
 	public String getRetailerName() {
 		return retailerName;
@@ -56,12 +55,7 @@ public class Retailer {
 	public void setContactNo(long contactNo) {
 		ContactNo = contactNo;
 	}
-	public List<Product> getPlist() {
-		return plist;
-	}
-	public void setPlist(List<Product> plist) {
-		this.plist = plist;
-	}
+	
 	
 	
 	

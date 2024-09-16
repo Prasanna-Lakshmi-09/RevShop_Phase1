@@ -20,8 +20,7 @@ public class Product {
 	private String price;
 	private String mrp_price;
 	private String product_category;
-	@ManyToOne
-	private Retailer retailer;
+	
 	
 	public int getProductId() {
 		return productId;

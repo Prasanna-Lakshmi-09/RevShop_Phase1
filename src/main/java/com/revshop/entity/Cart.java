@@ -16,6 +16,7 @@ public class Cart {
 	private String discount_price;
 	private String total_price;
 	private String mrp_price;
+	
 	public int getCartId() {
 		return cartId;
 	}

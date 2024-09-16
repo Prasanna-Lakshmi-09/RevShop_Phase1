@@ -19,22 +19,9 @@
                     <li><a href="buyer-login.jsp">Buyer Login</a></li>
                     <li><a href="buyer-register">Buyer Register</a>
                     <li><a href="retailer-login.jsp">Retailer Login</a>
-                    <li><a href="register.jsp">Retailer register</a>
+                    <li><a href="register.jsp">Retailer Register</a>
                     <li><a href="admin-login.jsp">Admin</a></li>
-                    <%-- Show different links based on user role --%>
-             <!--  <c:choose>
-                        <c:when test="${sessionScope.userRole == 'buyer'}">
-                            <li><a href="${pageContext.request.contextPath}/myOrders">My Orders</a></li>
-                        </c:when>
-                        <c:when test="${sessionScope.userRole == 'retailer'}">
-                            <li><a href="${pageContext.request.contextPath}/manageProducts">Manage Products</a></li>
-                            <li><a href="${pageContext.request.contextPath}/viewOrders">View Orders</a></li>
-                        </c:when>
-                        <c:when test="${sessionScope.userRole == 'admin'}">
-                            <li><a href="${pageContext.request.contextPath}/adminDashboard">Admin Dashboard</a></li>
-                        </c:when>
-                    </c:choose>
-                    <li><a href="${pageContext.request.contextPath}/logout">Logout</a></li>  -->
+                    
                 </ul>
             </nav>
         </div>
@@ -54,8 +41,8 @@
                     <img src="<%= product.getImage() %>" alt="<%= product.getImage_name() %>">
                     <h3><%= product.getProductName() %></h3>
                     <p><%= product.getDescription() %></p>
-                    <p><strong>Price: $<%= product.getPrice() %></strong></p>
-                    <a href="${pageContext.request.contextPath}/product?id=<%= product.getProductId() %>" class="btn">View Details</a>
+                    <p><strong>Price: <%= product.getPrice() %></strong></p>
+                    <a href="/product?id=<%= product.getProductId() %>" class="btn">View Details</a>
                 </div>
                 <% 
                         }

@@ -5,15 +5,42 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Online Shopping System</title>
+        <title>Retailer-view products</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        
+        <link rel="stylesheet" href="css/viewP.css">
         
     </head>
     <body>
         <%
             //Checking whether retailer in session or not
-            if (session.getAttribute("uname") != null && session.getAttribute("uname") != "") {
+            if (session.getAttribute("email") != null && session.getAttribute("email") != "") {
         %>
-
+<!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">Retailer Dashboard</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                
+                <li class="nav-item">
+                <a class="nav-link" href="retailerDashboard.jsp">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                   <a class="nav-link" href="viewOrders.jsp">View Orders</a>
+                </li>
+                <li class="nav-item">
+                   <a class="nav-link" href="customerFeedback.jsp">Customer-FeedBack</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="manageProfile.jsp">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="logout.jsp">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
             <div class="content-wrapper">
                 <div class="container-fluid">
                     <div class="row pad-botm">
@@ -24,7 +51,6 @@
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="panel panel-success">
-                                <div class="panel-heading">View Products</div>
                                 <div class="panel-body">
                                     <div class="table-responsive">
                                         <table class="table table-striped table-bordered table-hover">
@@ -34,8 +60,8 @@
                                                     <th>Name</th>
                                                     <th>Image</th>
                                                     <th>Description</th>
+                                                    <th>MRP(Rs)</th>
                                                     <th>Price (Rs)</th>
-                                                   
                                                     <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>
@@ -46,11 +72,12 @@
                                         %>
                                         <tbody>
                                             <tr>
-                                                <td><%=rs.getInt("id")%></td>
-                                                <td><%=rs.getString("name")%></td>
+                                                <td><%=rs.getInt("productId")%></td>
+                                                <td><%=rs.getString("productName")%></td>
                                                 <td><image src="uploads/<%=rs.getString("image_name")%>"
                                                            width="100" height="70"></image></td>
                                                 <td><%=rs.getString("description")%></td>
+                                                <td><del><%=rs.getString("mrp_price")%></del></td>
                                                 <td><%=rs.getString("price")%></td>
                                                
                                                 <td><%=rs.getString("active")%></td>

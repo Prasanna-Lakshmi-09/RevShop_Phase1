@@ -19,7 +19,7 @@ public class DatabaseConnection {
         try {
             //Registering with mysql Driver
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bootjpa1", "root", "root");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/revshopboot", "root", "root");
         } catch (Exception e) {
             e.printStackTrace();
         }

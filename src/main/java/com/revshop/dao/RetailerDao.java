@@ -41,9 +41,9 @@ public class RetailerDao implements RetailerDaoInterface {
 	public Retailer retailerLoginDao(String email, String password) {
 		Retailer r= null;
 		Session ss=sf.openSession();
-		Query q=ss.createQuery("from com.revshop.entity.Retailer r where r.email=:email and r.password=:pass ");
-		q.setParameter("email", email);
-		q.setParameter("password", password);
+		Query q=ss.createQuery("from com.revshop.entity.Retailer r where r.retailerEmail=:rid AND r.retailerPassword=:pid");
+		q.setParameter("rid", email);
+		q.setParameter("pid", password);
 		List<Retailer> rl=q.getResultList();
 		
 		if(rl.size()>0) {

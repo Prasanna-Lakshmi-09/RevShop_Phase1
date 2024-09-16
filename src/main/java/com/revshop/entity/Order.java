@@ -29,9 +29,6 @@ public class Order {
 	private String payment_mode;
 	private int payment_id;
 	
-	@ManyToOne
-	@JoinColumn(name="retailer_id")
-	private Retailer retailer;
 	
 	public int getOrder_no() {
 		return order_no;

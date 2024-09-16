@@ -55,21 +55,21 @@ public class RetailerController {
 	}
 
 	@RequestMapping("retailer-login")
-	public ModelAndView loginRetailer(HttpServletRequest request, @RequestParam("email")String Email,@RequestParam("pwd")String password) {
+	public ModelAndView loginRetailer(HttpServletRequest request, @RequestParam("email")String email,@RequestParam("password")String password) {
 		
 		ModelAndView mv = new ModelAndView();
 		
-		Retailer i=retailerService.loginRetailerService(Email,password);
+		Retailer i=retailerService.loginRetailerService(email,password);
 		
 	    //creating session
 		HttpSession hs=request.getSession();
-		if(Email !=null && password!=null) {
+		if(email !=null && password!=null) {
 			if(i!=null) {
 				hs.setAttribute("email", i.getRetailerEmail());
-				hs.setAttribute("name", i.getRetailerName());
 				
 				mv.setViewName("retailerDashboard.jsp");
-			}else {
+			}
+			else {
 			String message="wrong credentials";
 			hs.setAttribute("credential", message);
 			mv.setViewName("retailer-login.jsp");
@@ -114,7 +114,7 @@ public class RetailerController {
 	 }
 	 
 	 
-	 private final String UPLOAD_DIRECTORY = "C:\\Users\\prasa\\git\\repository3\\revshop/images";
+	 private final String UPLOAD_DIRECTORY = "C:\\Users\\prasa\\git\\repository3\\revshop\\src\\main\\webapp\\images";
 
 		
 		

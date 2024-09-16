@@ -96,32 +96,18 @@ body {
 }
 
 /* Image styling */
-.pro-image-front {
+.image {
     border: 1px solid #dee2e6;
     border-radius: 5px;
-}
-
-/* Status label styling */
-.label-success {
-    background-color: #28a745;
-    color: #ffffff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 0.9rem;
-}
-
-.label-danger {
-    background-color: #dc3545;
-    color: #ffffff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 0.9rem;
+    object-fit: cover;
+    width: 100px;
+    height: 70px;
 }
 
 /* Button styling */
 .btn {
-    font-size: 1rem;
-    padding: 8px 15px;
+    font-size: 0.9rem;
+    padding: 8px 12px;
     border-radius: 5px;
     text-transform: uppercase;
     font-weight: bold;

@@ -16,9 +16,6 @@ public class AdminService implements AdminServiceInterface {
 		return adminDao.adminLoginDao(email,password);
 	}
 
-	@Override
-	public int updateOrderStatusService(String parameter) {
-		return adminDao.updateOrderStatusDao(parameter);
-	}
+	
 
 }
