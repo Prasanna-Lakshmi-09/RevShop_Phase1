@@ -158,10 +158,6 @@ h2 {
 
         <!-- Update Profile Form -->
         <form action="updateProfile" method="post">
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" class="form-control"  required>
-            </div>
             
             <div class="form-group">
                 <label for="address">Address:</label>

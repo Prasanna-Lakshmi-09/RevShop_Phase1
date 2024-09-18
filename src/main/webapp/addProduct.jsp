@@ -68,7 +68,7 @@
         <h2 class="my-4">Add Products</h2>
 
         <!-- Add Product Form -->
-        <form action="addProducts" method="post">
+        <form action="addProducts" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="name">Product Name:</label>
                 <input type="text" id="name" name="name" class="form-control" required>
@@ -94,8 +94,8 @@
             </div>
 
             <div class="form-group">
-                <label for="image">Attach Product Image</label> 
-                <input type="file" name="image" required/>
+                <label >Attach Product Image</label> 
+                <input type="file" name="uploadLogo" required/>
             </div>
             <button type="submit" class="btn btn-primary" onclick="return confirm('Are you sure Do you want to add this product?');">Add Product</button>
             <button type="reset" class="btn btn-danger">Reset</button>

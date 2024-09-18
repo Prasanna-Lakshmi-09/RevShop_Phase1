@@ -77,15 +77,14 @@
                                         <tbody>
                                             <tr>
                                                 <td><%=resultOrders.getInt(1)%></td>
-                                                <td><%=resultOrders.getInt(2)%></td>
-                                                <td><%=resultOrders.getString(3)%>|<%=resultOrders.getString(4)%>|<%=resultOrders.getString(5)%>|<%=resultOrders.getString(6)%>|<%=resultOrders.getString(7)%>|<%=resultOrders.getString(8)%></td>
-                                                <td><img src="uploads/<%=resultOrders.getString(9)%>"
+                                                <td><%=resultOrders.getString(2)%>|<%=resultOrders.getString(3)%>|<%=resultOrders.getString(4)%>|<%=resultOrders.getString(5)%>|<%=resultOrders.getString(6)%>|<%=resultOrders.getString(7)%></td>
+                                                <td><img src="uploads/<%=resultOrders.getString(8)%>"
                                                          alt="" class="pro-image-front"
-                                                         style="width: 150px; height: 100px;"><br><%=resultOrders.getString(10)%></td>
+                                                         style="width: 150px; height: 100px;"><br><%=resultOrders.getString(9)%></td>
+                                                <td><%=resultOrders.getString(10)%></td>
                                                 <td><%=resultOrders.getString(11)%></td>
-                                                <td><%=resultOrders.getString(14)%></td>
                                                 <%
-                                                    if (resultOrders.getString(15).equals("Deliver")) {
+                                                    if (resultOrders.getString(12).equals("Deliver")) {
                                                 %>
                                                 <td><span class="label label-success">Delivered</span></td>
                                                 <%
@@ -95,17 +94,17 @@
                                                 <%
                                                     }
                                                 %>
-                                                <td><%=resultOrders.getString(16)%></td>
-                                                <td><%=resultOrders.getString(17)%></td>
+                                                <td><%=resultOrders.getString(13)%></td>
+                                                <td><%=resultOrders.getString(14)%></td>
                                                 <%
-                                                    if (resultOrders.getString(15).equals("Deliver")) {
+                                                    if (resultOrders.getString(16).equals("Deliver")) {
                                                 %>
-                                                <td><a href="CustomerProductsOrderStatus?orderId=<%=resultOrders.getInt(2)%>"><button class="btn btn-danger" onClick="return confirm('Are you sure, You want to change product delivery status');">Pending</button></a></td>
+                                                <td><a href="CustomerProductsOrderStatus?order_no=<%=resultOrders.getInt(1)%>"><button class="btn btn-danger" onClick="return confirm('Are you sure, You want to change product delivery status');">Pending</button></a></td>
                                                 <%
                                                 } else {
                                                 %>
                                                 <td><a
-                                                        href="CustomerProductsOrderStatus?orderId=<%=resultOrders.getInt(2)%>"><button class="btn btn-primary" onClick="return confirm('Are you sure, You want to change product delivery status?');">Deliver</button></a></td>
+                                                        href="CustomerProductsOrderStatus?order_id=<%=resultOrders.getInt(1)%>"><button class="btn btn-primary" onClick="return confirm('Are you sure, You want to change product delivery status?');">Deliver</button></a></td>
                                                     <%
                                                         }
                                                     %>

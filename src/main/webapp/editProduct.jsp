@@ -64,7 +64,7 @@
                                 while (updateResult.next()) {
                             %>
                             <div class="panel-body">
-                                <form role="form" action="admin-edit-product-process.jsp"
+                                <form role="form" action="editProductProcess.jsp"
                                       method="post">
                                     <div class="form-group">
                                         <label>Product Id</label> <input class="form-control" type="text" name="pid" value="<%=updateResult.getInt("product_id")%>" readonly />

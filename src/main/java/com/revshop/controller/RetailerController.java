@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.revshop.entity.Order;
@@ -125,7 +126,6 @@ public class RetailerController {
 		@RequestMapping("addProducts")
 		public ModelAndView addProducts(HttpServletRequest request) {
 			//Path where all the images are stored
-		   
 			ModelAndView mv=new ModelAndView();
 			 HttpSession session = request.getSession();
 		        if (ServletFileUpload.isMultipartContent(request)) {
@@ -140,7 +140,7 @@ public class RetailerController {
 		                String mrp_price = null;
 		                String status = null;
 		                String category = null;
-
+		                System.out.println("hello");
 		                //SALTCHARS to generate unique code for product
 		                String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 		                StringBuilder salt = new StringBuilder();
@@ -150,6 +150,7 @@ public class RetailerController {
 		                    salt.append(SALTCHARS.charAt(index));
 		                }
 		                String code = salt.toString();
+		                System.out.println(code);
 
 		                for (FileItem item : multiparts) {
 		                    if (!item.isFormField()) {
@@ -203,7 +204,6 @@ public class RetailerController {
 		                        String success = "Product added successfully.";
 		                        //Adding method in session.
 		                        session.setAttribute("message", success);
-		                        //Response send to the admin-add-product.jsp
 		                        mv.setViewName("viewProducts.jsp");
 		                    }
 		                } catch (Exception e) {

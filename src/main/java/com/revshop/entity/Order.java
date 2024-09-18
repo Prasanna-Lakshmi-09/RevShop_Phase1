@@ -28,6 +28,7 @@ public class Order {
 	private String order_status;
 	private String payment_mode;
 	private int payment_id;
+	private int retailer_id;
 	
 	
 	public int getOrder_no() {
@@ -119,6 +120,12 @@ public class Order {
 	}
 	public void setPayment_id(int payment_id) {
 		this.payment_id = payment_id;
+	}
+	public int getRetailer_id() {
+		return retailer_id;
+	}
+	public void setRetailer_id(int retailer_id) {
+		this.retailer_id = retailer_id;
 	}
 	
 	

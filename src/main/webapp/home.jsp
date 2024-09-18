@@ -16,6 +16,7 @@
                 <ul>
                     <li><a href="home.jsp">Home</a></li>
                     <li><a href="products.jsp">Products</a></li>
+                    <li><a href="retailerDashboard.jsp">Retailer Dashboard</a>
                     <li><a href="buyer-login.jsp">Buyer Login</a></li>
                     <li><a href="buyer-register">Buyer Register</a>
                     <li><a href="retailer-login.jsp">Retailer Login</a>
