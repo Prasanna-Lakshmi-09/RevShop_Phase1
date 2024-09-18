@@ -68,7 +68,7 @@
         <h2 class="my-4">Add Products</h2>
 
         <!-- Add Product Form -->
-        <form action="/addProduct" method="post">
+        <form action="addProducts" method="post">
             <div class="form-group">
                 <label for="name">Product Name:</label>
                 <input type="text" id="name" name="name" class="form-control" required>

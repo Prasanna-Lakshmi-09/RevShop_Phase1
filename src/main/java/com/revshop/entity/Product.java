@@ -5,12 +5,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
 public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int productId;
+	private int product_id;
 	private String productName;
 	private String active;
 	private String code;
@@ -22,11 +23,12 @@ public class Product {
 	private String product_category;
 	
 	
-	public int getProductId() {
-		return productId;
+	
+	public int getProduct_id() {
+		return product_id;
 	}
-	public void setProductId(int productId) {
-		this.productId = productId;
+	public void setProduct_id(int product_id) {
+		this.product_id = product_id;
 	}
 	public String getProductName() {
 		return productName;

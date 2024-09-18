@@ -23,7 +23,6 @@ public class AdminController {
 		
 		HttpSession hs = request.getSession();
 
-     
         Admin i=adminService.adminLoginService(email,password);
         
         ModelAndView mv=new ModelAndView();
@@ -33,7 +32,6 @@ public class AdminController {
             //Redirecting admin to dashboard page
             mv.setViewName("adminDashboard.jsp");
           
-
         } else {
             //If details are wrong
             String message = "You have enter wrong credentials";

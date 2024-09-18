@@ -19,4 +19,6 @@ public interface RetailerServiceInterface {
 
 	int updateOrderStatusService(String parameter);
 
+	int manageProfileService(String address,long phNo);
+
 }

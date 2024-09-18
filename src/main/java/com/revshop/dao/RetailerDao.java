@@ -105,4 +105,17 @@ public class RetailerDao implements RetailerDaoInterface {
 		return i;
 	}
 
+	@Override
+	@Transactional
+	public int manageProfileDao(String address,long phNo) {
+		int i=0;
+		Session ss=sf.openSession();
+		EntityTransaction et=ss.getTransaction();
+		et.begin();
+		ss.update(address, phNo);
+		et.commit();
+		i=1;
+		return i;
+	}
+
 }

@@ -62,6 +62,7 @@
                                                     <th>Description</th>
                                                     <th>MRP(Rs)</th>
                                                     <th>Price (Rs)</th>
+                                                    
                                                     <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>
@@ -72,8 +73,8 @@
                                         %>
                                         <tbody>
                                             <tr>
-                                                <td><%=rs.getInt("productId")%></td>
-                                                <td><%=rs.getString("productName")%></td>
+                                                <td><%=rs.getInt("product_id")%></td>
+                                                <td><%=rs.getString("product_name")%></td>
                                                 <td><image src="uploads/<%=rs.getString("image_name")%>"
                                                            width="100" height="70"></image></td>
                                                 <td><%=rs.getString("description")%></td>
@@ -82,9 +83,9 @@
                                                
                                                 <td><%=rs.getString("active")%></td>
                                                 <td><a
-                                                        href="editProduct.jsp?id=<%=rs.getInt("id")%>"
+                                                        href="editProduct.jsp?product_id=<%=rs.getInt("product_id")%>"
                                                         class="btn btn-primary">Edit</a>|<a
-                                                        href="deleteProduct.jsp?id=<%=rs.getInt("id")%>"
+                                                        href="deleteProduct.jsp?product_id=<%=rs.getInt("product_id")%>"
                                                         class="btn btn-danger" onclick="return confirm('Are you sure Do you want to delete this product?');">Delete</a></td>
                                             </tr>
                                         </tbody>

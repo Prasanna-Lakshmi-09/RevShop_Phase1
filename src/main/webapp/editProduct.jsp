@@ -1,3 +1,4 @@
+<%@page import="com.revshop.entity.Product"%>
 <%@page import="com.revshop.utility.DatabaseConnection"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 
@@ -5,26 +6,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Online Shopping System</title>
-        <style >
-     .navbar {
-            background-color: #343a40;
-        }
-
-        .navbar-brand {
-            color: #fff;
-        }
-
-        .navbar-nav .nav-link {
-            color: #fff;
-        }
-
-        .navbar-nav .nav-link:hover {
-            color: #ddd;
-        }
-       
-     }
-    </style>
+        <title>Revshop-Retailer Edit Product</title>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        
+        <link rel="stylesheet" href="css/editP.css">
+    
     </head>
     <body>
     
@@ -56,8 +42,8 @@
     </nav>  
     
         <%
-            //Checking whether admin in session or not
-            if (session.getAttribute("uname") != null && session.getAttribute("uname") != "") {
+            //Checking whether retailer in session or not
+            if (session.getAttribute("email") != null && session.getAttribute("email") != "") {
         %>
             <div class="content-wrapper">
                 <div class="container">
@@ -71,20 +57,20 @@
                             <div class="panel panel-info">
                                 <div class="panel-heading">Edit Product</div>
                             <%
-                                //Getting input from the admin
-                                int id = Integer.parseInt(request.getParameter("id"));
+                                //Getting input from the retailer
+                                int id = Integer.parseInt(request.getParameter("product_id"));
                                 //Querying to database
-                                ResultSet updateResult = DatabaseConnection.getResultFromSqlQuery("select * from tblproduct where id='" + id + "' ");
+                                ResultSet updateResult = DatabaseConnection.getResultFromSqlQuery("select * from product where product_id='" + id + "' ");
                                 while (updateResult.next()) {
                             %>
                             <div class="panel-body">
                                 <form role="form" action="admin-edit-product-process.jsp"
                                       method="post">
                                     <div class="form-group">
-                                        <label>Product Id</label> <input class="form-control" type="text" name="pid" value="<%=updateResult.getString("id")%>" readonly />
+                                        <label>Product Id</label> <input class="form-control" type="text" name="pid" value="<%=updateResult.getInt("product_id")%>" readonly />
                                     </div>
                                     <div class="form-group">
-                                        <label>Enter Name</label> <input class="form-control" type="text" name="pname" value="<%=updateResult.getString("name")%>" />
+                                        <label>Enter Name</label> <input class="form-control" type="text" name="pname" value="<%=updateResult.getString("product_name")%>" />
                                     </div>
                                     <div class="form-group">
                                         <label>Price</label> <input class="form-control" type="text" name="price" value="<%=updateResult.getString("price")%>" />

@@ -122,7 +122,7 @@
             text-decoration: underline;
         }
     </style>
-    <script>
+  <!--   <script>
         function validateForm() {
             var name = document.querySelector('input[name="name"]').value;
             var email = document.querySelector('input[name="email"]').value;
@@ -137,12 +137,13 @@
             // Additional validation can be added here (e.g., email format, password strength)
             return true;
         }
-    </script>
+    </script>  --> 
 </head>
 <body>
     <header>
         <div class="header-container">
             <h1>Rev Shop</h1>
+           
             <nav class="header-nav">
                 <a href="home.jsp">Home</a>
                 <a href="buyer-login.jsp">Buyer Login</a>
@@ -155,7 +156,25 @@
 
     <div class="container">
         <h2 class="text-center">Retailer Registration</h2>
-        <form action="/register" method="post" onsubmit="return validateForm()">
+         <%
+            String success = (String) session.getAttribute("success-message");
+            if (success != null) {
+               session.removeAttribute("success-message");
+         %>
+             <div class='alert alert-success' id='success' style="width: 680px;">Customer
+                                    Register Successfully.</div>
+                                    <%
+                                        }
+                                        String fail = (String) session.getAttribute("fail-message");
+                                        if (fail != null) {
+                                            session.removeAttribute("fail-message");
+                                    %>
+                                <div class="alert alert-danger" id='danger' style="width: 680px;">Customer
+                                    Registration Fail,Please try again</div>
+                                    <%
+                                        }
+                                    %>
+        <form action="registerRetailer" method="post" ">
             <div class="sign-up">
                 <h4>Your Name :</h4>
                 <input type="text" placeholder="Your Name" required name="name">
@@ -170,7 +189,7 @@
             </div>
             <div class="sign-up">
                 <h4>Phone :</h4>
-                <input type="text" placeholder="Type here" required name="mobile">
+                <input type="text" placeholder="Type here" required name="phNo">
             </div>
             <div class="sign-up">
                 <h4>Address :</h4>

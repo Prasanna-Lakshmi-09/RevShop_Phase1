@@ -19,5 +19,7 @@ public interface RetailerDaoInterface  {
 
 	int updateOrderStatusDao(String parameter);
 
+	int manageProfileDao(String address,long phNo);
+
 
 }

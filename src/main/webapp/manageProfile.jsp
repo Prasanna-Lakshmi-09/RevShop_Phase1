@@ -157,20 +157,20 @@ h2 {
         <h2 class="my-4">Manage Profile</h2>
 
         <!-- Update Profile Form -->
-        <form action="/updateProfile" method="post">
+        <form action="updateProfile" method="post">
             <div class="form-group">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" class="form-control" value="${seller.name}" required>
+                <input type="text" id="name" name="name" class="form-control"  required>
             </div>
             
             <div class="form-group">
                 <label for="address">Address:</label>
-                <textarea id="address" name="address" class="form-control" required>${seller.address}</textarea>
+                <textarea id="address" name="address" class="form-control"  value="address" required></textarea>
             </div>
             
             <div class="form-group">
                 <label for="phno">Phone No:</label>
-                <input id="phno" name="phno" class="form-control" value="${seller.phNo}" required>
+                <input id="phno" name="phno" class="form-control"  required>
             </div>
             
             

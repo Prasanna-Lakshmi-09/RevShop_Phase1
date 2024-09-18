@@ -69,7 +69,7 @@
         <h2 class="my-4">Manage Products</h2>
 
         <!-- Add Product Form -->
-        <form action="/addProduct" method="post">
+        <form action="addProducts" method="post">
             <div class="form-group">
                 <label for="name">Product Name:</label>
                 <input type="text" id="name" name="name" class="form-control" required>
@@ -129,30 +129,27 @@
                     <th>Actions</th>
                 </tr>
             </thead>
+            <%
+                                            ResultSet rs = DatabaseConnection.getResultFromSqlQuery("select * from product");
+                                            while (rs.next()) {
+                                        %>
             <tbody>
-                <%
-                    // Retrieve the list of products from the request attribute
-                    List<Product> products = (List<Product>) request.getAttribute("productList");
-                    if (products != null && !products.isEmpty()) {
-                        for (Product product : products) {
-                %>
+                
+                 
                 <tr>
-                    <td><%= product.getProductId() %></td>
-                    <td><%= product.getProductName() %></td>
-                    <td><%= product.getDescription() %></td>
-                    <td><%= product.getPrice() %></td>
+                    <td><%= rs.getInt("product_id") %></td>
+                    <td><%= rs.getString("product_name") %></td>
+                    <td><%= rs.getString("description") %></td>
+                    <td><%= rs.getString("price") %></td>
                     <td>
                         <!-- Edit Button -->
-                        <a href="editProduct.jsp?productId=<%= product.getProductId() %>" class="btn btn-warning btn-action">Edit</a>
-                        <!-- Delete Button -->
-                        <form action="deleteProduct" method="post" style="display: inline;">
-                            <input type="hidden" name="productId" value="<%= product.getProductId() %>">
-                            <button type="submit" class="btn btn-danger btn-action" onclick="return confirm('Are you sure you want to delete this product?')">Delete</button>
-                        </form>
+                       <a href="editProduct.jsp?product_id=<%=rs.getInt("product_id")%>"
+                                                     class="btn btn-primary">Edit</a>|<a
+                                                        href="deleteProduct.jsp?product_id=<%=rs.getInt("product_id")%>"
+                                                        class="btn btn-danger" onclick="return confirm('Are you sure Do you want to delete this product?');">Delete</a></td>
                     </td>
                 </tr>
                  <%
-                        }
                     }                
                     
                  %>

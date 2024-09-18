@@ -42,6 +42,11 @@ public class RetailerService implements RetailerServiceInterface {
 		return retailerDao.updateOrderStatusDao(parameter);
 	}
 
+	@Override
+	public int manageProfileService(String address,long phNo) {
+		return retailerDao.manageProfileDao(address,phNo);
+	}
+
 	
 
 

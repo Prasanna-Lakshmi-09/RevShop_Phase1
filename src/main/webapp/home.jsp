@@ -42,7 +42,7 @@
                     <h3><%= product.getProductName() %></h3>
                     <p><%= product.getDescription() %></p>
                     <p><strong>Price: <%= product.getPrice() %></strong></p>
-                    <a href="/product?id=<%= product.getProductId() %>" class="btn">View Details</a>
+                    <a href="/product?id=<%= product.getProduct_id() %>" class="btn">View Details</a>
                 </div>
                 <% 
                         }

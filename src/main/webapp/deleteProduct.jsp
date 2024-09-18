@@ -3,8 +3,8 @@
 
 <%@ page import="java.sql.*"%>
 <%
-    int id = Integer.parseInt(request.getParameter("id"));
-    int deleteProduct = DatabaseConnection.insertUpdateFromSqlQuery("delete from product where id='" + id + "' ");
+    int id = Integer.parseInt(request.getParameter("product_id"));
+    int deleteProduct = DatabaseConnection.insertUpdateFromSqlQuery("delete from product where product_id='" + id + "' ");
     if (deleteProduct > 0) {
         response.sendRedirect("viewProducts.jsp");
     } else {

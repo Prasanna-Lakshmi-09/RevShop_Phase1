@@ -31,26 +31,30 @@ public class RetailerController {
 	@Autowired
 	private RetailerServiceInterface retailerService;
 	
-	@RequestMapping("register")
-	public ModelAndView registerRetailer(HttpServletRequest request,@RequestParam("name")String retailerName,@RequestParam("email")String retailerEmail,
-	@RequestParam("pwd")String retailerPassword,@RequestParam("address")String address,@RequestParam("phno")long contactNo) {
+	@RequestMapping("registerRetailer")
+	public ModelAndView registerRetailer(HttpServletRequest request,HttpServletResponse response,@RequestParam("name")String retailerName,@RequestParam("email")String retailerEmail,
+	@RequestParam("password")String retailerPassword,@RequestParam("address")String address,@RequestParam("phNo")long ContactNo) {
 		Retailer r = new Retailer();
-		r.setRetailerName(retailerName);;
+		r.setRetailerName(retailerName);
 		r.setRetailerEmail(retailerEmail);
 		r.setRetailerPassword(retailerPassword);
 		r.setAddress(address);
-		r.setContactNo(contactNo);
+		r.setContactNo(ContactNo);
 		
 		int i=retailerService.registerRetailer(r);
 		
-		String result="regitration fail";
-		
+		ModelAndView mv = new ModelAndView();
+		HttpSession hs = request.getSession(true);
 		if(i>0) {
-    		result="Registration Success";
+    		String message="Registration Success";
+    		hs.setAttribute("success-msg",message);
+        	mv.setViewName("retailer-login.jsp");
+    	}else {
+            String message = "Customer registration fail";
+            hs.setAttribute("fail-msg", message);
+            mv.setViewName("register.jsp");
     	}
-    	ModelAndView mv = new ModelAndView();
-    	mv.addObject("registrationresult",result);
-    	mv.setViewName("register-login.jsp");
+    	
     	return mv;
 	}
 
@@ -103,7 +107,7 @@ public class RetailerController {
 //	    }
 
 	 
-	 @GetMapping("/orders/{retid}")
+	 @GetMapping("viewOrders")
 	 public ModelAndView viewOrders(@PathVariable("retid") int retid) {
 		// Fetch the orders for the given retailer ID
 	     List<Order> orders = retailerService.getOrdersByRetailerId(retid);
@@ -118,7 +122,7 @@ public class RetailerController {
 
 		
 		
-		@RequestMapping("AddProducts")
+		@RequestMapping("addProducts")
 		public ModelAndView addProducts(HttpServletRequest request) {
 			//Path where all the images are stored
 		   
@@ -133,7 +137,7 @@ public class RetailerController {
 		                String productQuantity = null;
 		                String productPrice = null;
 		                String descrip = null;
-//		                String mrpPrice = null;
+		                String mrp_price = null;
 		                String status = null;
 		                String category = null;
 
@@ -164,6 +168,9 @@ public class RetailerController {
 		                        FileItem description = (FileItem) multiparts.get(2);
 		                        descrip = description.getString();
 
+		                        FileItem mprice = (FileItem) multiparts.get(3);
+		                        mrp_price = mprice.getString();
+
 
 		                        FileItem fstatus = (FileItem) multiparts.get(4);
 		                        status = fstatus.getString();
@@ -182,6 +189,7 @@ public class RetailerController {
 		                    product.setDescription(descrip);
 		                    product.setImage(imagePath);
 		                    product.setImage_name(imageName);
+		                    product.setMrp_price(mrp_price);
 		                    product.setProductName(productName);
 		                    product.setPrice(productPrice);
 		                    product.setProduct_category(category);
@@ -213,6 +221,24 @@ public class RetailerController {
 					
 			return mv;
 		}
+		
+		
+		@RequestMapping("updateProfile")
+		public ModelAndView manageProfile(HttpServletRequest request,@RequestParam("address") String address,@RequestParam("phno") long phNo) {
+
+			ModelAndView mv=new ModelAndView();
+			HttpSession hs=request.getSession();
+			int up=retailerService.manageProfileService(address,phNo);
+			if(up>0) {
+				mv.setViewName("viewProfile.jsp");
+			}else {
+				mv.setViewName("manageProfile.jsp");
+			}
+			
+
+		    return mv;
+		}
+		
 		
 		@RequestMapping("CustomerProductsOrderStatus")
 		public ModelAndView CustomerProductsOrderStatus(HttpServletRequest request,HttpServletResponse response,@RequestParam("upass") String password,@RequestParam("email") String email) {
