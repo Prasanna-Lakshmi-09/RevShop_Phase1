@@ -80,23 +80,23 @@ public class RetailerDao implements RetailerDaoInterface {
 	}
 
 	@Override
-	public int updateOrderStatusDao(String orderId) {
+	public int updateOrderStatusDao(String order_id) {
 		int i=0;
 		Session ss=sf.openSession();
 		EntityTransaction et=ss.getTransaction();
 		et.begin();
-		Query q=ss.createQuery("from com.revshop.entity.Order oo where oo.order_no=:oid");
-		q.setParameter("oid", orderId);
+		Query q=ss.createQuery("from com.revshop.entity.Order oo where oo.order_id=:oid");
+		q.setParameter("oid", order_id);
 		List<Order> ll=q.getResultList();
 		if(ll.size()>0) {
 			 if (ll.get(0).getOrder_status().equals("Deliver")) {
-				 Query q1=ss.createQuery("update com.revshop.entity.Order oo set oo.order_status='Pending' where oo.order_no=:oid");
-		    		q1.setParameter("oid", orderId);
+				 Query q1=ss.createQuery("update com.revshop.entity.Order oo set oo.order_status='Pending' where oo.order_id=:oid");
+		    		q1.setParameter("oid", order_id);
                 	
        			 	i=q1.executeUpdate();
                     } else {
-                    	Query q2=ss.createQuery("update com.revshop.entity.Order oo set oo.order_status='Deliver' where oo.order_no=:oid");
-        	    		q2.setParameter("oid", orderId);
+                    	Query q2=ss.createQuery("update com.revshop.entity.Order oo set oo.order_status='Deliver' where oo.order_id=:oid");
+        	    		q2.setParameter("oid", order_id);
                 	
        			 	i=q2.executeUpdate();
                     }

@@ -13,6 +13,7 @@ import javax.persistence.Table;
 public class Order {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int order_id;
 	private int order_no;
 	private String buyerName;
 	private String phNo;
@@ -26,11 +27,19 @@ public class Order {
 	private String product_selling_price;
 	private String product_total_price;
 	private String order_status;
+	
 	private String payment_mode;
 	private int payment_id;
 	private int retailer_id;
 	
 	
+	
+	public int getOrder_id() {
+		return order_id;
+	}
+	public void setOrder_id(int order_id) {
+		this.order_id = order_id;
+	}
 	public int getOrder_no() {
 		return order_no;
 	}

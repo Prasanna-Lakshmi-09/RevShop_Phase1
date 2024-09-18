@@ -241,10 +241,10 @@ public class RetailerController {
 		
 		
 		@RequestMapping("CustomerProductsOrderStatus")
-		public ModelAndView CustomerProductsOrderStatus(HttpServletRequest request,HttpServletResponse response,@RequestParam("upass") String password,@RequestParam("email") String email) {
+		public ModelAndView CustomerProductsOrderStatus(HttpServletRequest request,HttpServletResponse response,@RequestParam("password") String retailerPassword,@RequestParam("email") String retailerEmail) {
 			ModelAndView mv=new ModelAndView();
 			HttpSession hs = request.getSession();
-			 int statusMode=retailerService.updateOrderStatusService(request.getParameter("orderId"));
+			 int statusMode=retailerService.updateOrderStatusService(request.getParameter("order_id"));
 	         // int statusMode = 0;
 	          //Taking input from retailer order-id to get the order status from the database
 	          
